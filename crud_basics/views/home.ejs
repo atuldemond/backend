@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+<link rel="stylesheet" href="home.css">
+</head>
+<body>
+ 
+<div class="main">
+
+        
+
+            <% for(data of datas){ %>
+         <div id="post">
+                <div class="head">
+                     <div class="items">
+                         Id:- <%= data.id %>
+                     </div>
+                     <div class="items">
+                         Name:- <%= data.name%>
+                     </div>
+                     <div class="items">
+                         Number:- <%= data.number %>
+                     </div>
+                </div>
+         
+         
+         
+                <div class="button">
+                  
+         
+                 <div class="seepro">
+                     <form action="/profile/<%=data.id%>" method="get">
+                      
+                         <button class="btn"> See Your Profile</button>
+                 
+                     </form> 
+                 </div>
+         
+               
+                 <div class="update">
+                       
+                 
+                      <form action="/edit/<%=data.id%>" method="patch">
+                    
+                          <button class="btn">update</button>
+                      
+                      </form>
+         
+                         
+                 </div>
+         
+                     <div class="delete">
+                     
+                          <form action="/home/<%=data.id%>?_method=DELETE" method="post">
+                     
+                              <Button class="btn">Delete</Button>
+                     
+                         </form>
+                     </div>
+                   
+                </div>
+         
+            
+        </div>  
+                 
+         
+               
+         
+                     
+               
+         
+         
+                    
+              <%}%>
+
+
+
+    
+
+     
+
+
+    
+            </form>
+        <br>
+        <br>
+        <br>
+            <form action="/newpost">
+
+                 <button class="create">create New Post</button>
+ 
+            </form>
+
+</div>
+
+
+      
+    
+
+
+</body>
+</html>

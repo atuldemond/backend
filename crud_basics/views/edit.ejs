@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       
+    <h1>Edit Section  ---------</h1>
+
+    <form action="/edit/<%=data.id%>?_method=PATCH" method="post">
+      <h1><%=data.id%></h1>  
+     <input type="number" name="id" placeholder="edit your id here"> <br>
+     <input type="text" name="name" placeholder="edit your name here"> <br>
+     <input type="number" name="number" placeholder="edit your numb here">
+
+        <button>submit</button>
+        
+    </form>
+
+
+
+    
+</body>
+</html>
