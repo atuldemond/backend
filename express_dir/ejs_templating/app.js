@@ -56,6 +56,8 @@ app.delete("/check", (req, res) => {
 app.get("*", (req, res) => {
   res.send("Page NOt Found");
 });
+
+//eror handling -------------
 app.use((err, req, res, next) => {
   res.status(500).send("inetrnal server error" + err.message);
 });
