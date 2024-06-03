@@ -8,7 +8,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="/styles/edit.css" />
+    <link rel="stylesheet" href="/styles/view.css" />
   </head>
   <body>
     <div class="head">
@@ -22,25 +22,20 @@
         </div>
       </div>
     </div>
+
     <%function removeTxtExtension(filename) { %> <%if
     (filename.endsWith('.txt')) { %> <% return filename.slice(0, -4); %> <% } %>
     <% return filename %> <% } %> <% const newFilename =
     removeTxtExtension(filename) %>
-    <div class="middle">
-      You are Editing hisab of &nbsp;
-      <span id="newfilename"><%=newFilename%> </span>&nbsp; date
-    </div>
 
-    <div class="forms">
-      <form action="/update/<%=filename%>" method="post">
-        <textarea name="filedata" id="textarea" rows="10" cols="50">
-          <%=data%>
-      </textarea
-        >
-        <div class="button">
-          <input id="btn" type="submit" />
-        </div>
-      </form>
+    <div class="middle">
+      Hisab of &nbsp; <span id="newfilename"><%=newFilename%> </span>&nbsp; date
+    </div>
+    <div class="forms"><%=data%></div>
+    <div class="edit">
+      <a id="editfile" href="/edit/<%=filename%>"
+        ><i class="fa-solid fa-pen-to-square"></i>Edit Hisaab</a
+      >
     </div>
   </body>
 </html>

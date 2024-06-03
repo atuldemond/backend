@@ -4,13 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/styles/index.css" />
   </head>
   <body>
-    <% files.forEach(function(file){ %>
-    <h1><%=file %></h1>
-    <a href="/edit/<%=file%>">edit</a>
-    <a href="/delete/<%=file%>">delete</a>
-    <% }) %>
+    <div class="head">
+      <div class="leftlogo">
+        <div class="logof"><a id="homelink2" href="/">Khatabook</a></div>
+      </div>
+      <div class="right">
+        <div class="home"><a id="homelink" href="/">home</a></div>
+        <div class="create">
+          <a id="homelink" href="/create/new">Create New Hisaab</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="middle">All Hisaab Kitaab</div>
+
+    <div class="function">
+      <ul>
+        <% files.forEach(function(file){ %>
+        <li>
+          <div class="div1">
+            <%function removeTxtExtension(file) { %>
+              <%if (file.endsWith('.txt')) { %>
+                <% return file.slice(0, -4); %>
+              <% } %>
+              <% return file %>
+              <% } %>
+              <% const newFilename = removeTxtExtension(file) %>
+              
+            <h3><%= newFilename %></h3>
+            <a href="/view/<%=file%>"><i class="fa-solid fa-arrow-right"></i></i></a>
+          </div>
+    <div class="div_left">
+  <a id="editfile" href="/edit/<%=file%>"><i class="fa-solid fa-pen-to-square"></i></a>
+  <a id="editbin" href="/delete/<%=file%>"><i class="fa-solid fa-trash-can"></i></a>
+  <% }) %>
+        </div>
+      
+        </li>
+      </ul>
+    </div>
   </body>
 </html>

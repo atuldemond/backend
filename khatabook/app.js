@@ -9,15 +9,23 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "css")));
 
 app.get("/", (req, res) => {
   fs.readdir(`./files`, (err, files) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(files);
-      res.render("index", { files });
+      return res.render("index", { files });
+    }
+  });
+});
+
+app.get("/view/:filename", (req, res) => {
+  fs.readFile(`./files/${req.params.filename}`, "utf8", (err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("view", { data, filename: req.params.filename });
     }
   });
 });
@@ -52,7 +60,11 @@ app.get("/delete/:filename", (req, res) => {
   });
 });
 
-app.get("/create", (req, res) => {
+app.get("/create/new", (req, res) => {
+  res.render("create");
+});
+
+app.post("/create", (req, res) => {
   const today = new Date();
   const day = String(today.getDate()).padStart(2, "0");
   const month = String(today.getMonth() + 1).padStart(2, "0");
@@ -60,18 +72,14 @@ app.get("/create", (req, res) => {
 
   const finalDate = `${day}-${month}-${year}.txt`;
   console.log(finalDate);
-  fs.writeFile(
-    `./files/${finalDate}`,
-    "This is normal data inside the file  ",
-    (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("File is Successfully created");
-        res.redirect("/");
-      }
+  fs.writeFile(`./files/${finalDate}`, req.body.filedata, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("File is Successfully created");
+      res.redirect("/");
     }
-  );
+  });
 });
 
 app.listen(port, (req, res) => {
