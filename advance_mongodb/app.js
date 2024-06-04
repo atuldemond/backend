@@ -140,6 +140,59 @@ app.get("/userne", async (req, res) => {
   res.send(letdata);
 });
 
+app.get("/userlt", async (req, res) => {
+  letdata = await userModel.find({ age: { $lt: 35 } });
+  res.send(letdata);
+});
+
+app.get("/userlte", async (req, res) => {
+  letdata = await userModel.find({ age: { $lte: 35 } });
+  res.send(letdata);
+});
+
+app.get("/usergt", async (req, res) => {
+  letdata = await userModel.find({ age: { $gt: 35 } });
+  res.send(letdata);
+});
+
+app.get("/usergte", async (req, res) => {
+  letdata = await userModel.find({ age: { $gte: 35 } });
+  res.send(letdata);
+});
+app.get("/userin", async (req, res) => {
+  letdata = await userModel.find({ age: { $in: [20, 30, 35] } });
+  res.send(letdata);
+});
+
+app.get("/userin", async (req, res) => {
+  letdata = await userModel.find({ age: { $nin: [20, 30, 35] } });
+  res.send(letdata);
+});
+
+app.get("/userexists", async (req, res) => {
+  letdata = await userModel.find({ age: { $exists: ture } });
+  res.send(letdata);
+});
+
+app.get("/userand", async (req, res) => {
+  letdata = await userModel.find({
+    $and: [{ ISMarried: true }, { age: { $gt: 30 } }],
+  });
+  res.send(letdata);
+});
+
+app.get("/useror", async (req, res) => {
+  letdata = await userModel.find({
+    $or: [{ ISMarried: true }, { age: { $gt: 30 } }],
+  });
+  res.send(letdata);
+});
+
+app.get("/userregex", async (req, res) => {
+  letdata = await userModel.find({ name: { $regex: /^.*h$/i } });
+  res.send(letdata);
+});
+
 app.get("/createmany", async (req, res) => {
   let data = await userModel.insertMany(dummyData);
   res.send(data);
