@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <H1><center>Welcome <%=user.name%></center></H1>
+
+    <button>
+      <a href="/newhisab/<%=user.username%>">Create Your New Hisab</a>
+    </button>
+    <ul>
+      <%user.posts.forEach((post)=>{ %>
+    </ul>
+    <li>
+      <%=post.content%> <%=post.title%>
+      <button>
+        <a href="/edit/<%=user.username%>/<%=post.id%>/<%=post.content%>"
+          >Edit</a
+        >
+      </button>
+      <button>
+        <a href="/delete/<%=user.username%>/<%=post.id%>">Delete</a>
+      </button>
+    </li>
+
+    <%})%>
+  </body>
+</html>
