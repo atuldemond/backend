@@ -6,12 +6,15 @@
     <title>edit page</title>
   </head>
   <body>
-    <form action="/update/<%=user.username%>/<%=id%>" method="post">
+    <form action="/update/<%=user.username%>/<%=id%>/" method="post">
       <H1><center>Welcome <%=user.name%></center></H1>
-      <textarea name="textarea" name="textarea" id="" cols="20" id="20">
+      <p><%=post_title.title%></p>
+      <textarea name="textarea" name="textarea" id="" cols="40" rows="15">
       <%=content%></textarea
       >
-      <button type="submit">update</button>
+      <div class="button">
+        <button type="submit">update Hisab</button>
+      </div>
     </form>
   </body>
 </html>

@@ -15,7 +15,14 @@
       <%user.posts.forEach((post)=>{ %>
     </ul>
     <li>
-      <%=post.content%> <%=post.title%>
+      <%=post.title%>
+      <button>
+        <a
+          href="/view/<%=user.username%>/<%=post.id%>/<%=post.content%>/<%=post.title%>"
+          >View</a
+        >
+      </button>
+
       <button>
         <a href="/edit/<%=user.username%>/<%=post.id%>/<%=post.content%>"
           >Edit</a

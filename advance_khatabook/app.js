@@ -25,13 +25,13 @@ app.get("/", (req, res) => {
 app.get("/newhisab/:username", async (req, res) => {
   let username = req.params.username;
   let user = await userModel.findOne({ username: username });
-  console.log(user.name);
-  console.log(username);
+  // console.log(user.name);
+  // console.log(username);
   res.render("newhisab", { user });
 });
 app.post("/add/:username", async (req, res) => {
   let username = req.params.username;
-  let { textarea } = req.body;
+  let { textarea, title } = req.body;
 
   const today = new Date();
 
@@ -43,7 +43,7 @@ app.post("/add/:username", async (req, res) => {
 
   const users = await userModel.findOne({ username: username });
   if (users) {
-    users.posts.push({ title: date, content: textarea });
+    users.posts.push({ title: ` ${title}-${date}`, content: textarea });
     users.save();
     res.redirect(`/profile/${username}`, 200, { user });
   } else {
@@ -61,9 +61,10 @@ app.get("/edit/:username/:id/:content", async (req, res) => {
   let { username, id, content } = req.params;
   let user = await userModel.findOne({ username: username });
 
-  // console.log(user.posts.id(id));
+  const post_title = user.posts.id(id);
+  // console.log(post_title.title);
 
-  res.render("edit", { user, content, id });
+  res.render("edit", { user, content, id, post_title });
 });
 
 app.post("/update/:username/:id", async (req, res) => {
@@ -83,11 +84,34 @@ app.post("/update/:username/:id", async (req, res) => {
 app.get("/delete/:username/:id", async (req, res) => {
   let { username, id } = req.params;
 
+  try {
+    const filter = { username: username };
+    const update = { $pull: { posts: { _id: id } } };
+    let user = await userModel.findOne({ username: username });
+    const result = await userModel.findOneAndUpdate(filter, update, {
+      new: true,
+    });
+    await user.save({ suppressWarning: true });
+    if (!result) {
+      return res.status(404).send("Post not found");
+    }
+
+    res.redirect(`/profile/${username}`, 200, { user });
+  } catch (error) {
+    console.error("Error deleting post:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+//viewing users
+app.get("/view/:username/:id/:content/:title", async (req, res) => {
+  let { username, id, content, title } = req.params;
+
   let user = await userModel.findOne({ username: username });
-  const postIndex = user.posts.indexOf(id);
-  user.posts.splice(postIndex + 1, 1);
-  await user.save({ suppressWarning: true });
-  res.redirect(`/profile/${username}`, 200, { user });
+  const post = user.posts.id(id);
+  post.content = content;
+  res.render("view", { content, user, username, post, id, title });
+  // res.redirect(`/profile/${username}`, 200, { user });
 });
 
 //login and register Functionality
@@ -128,7 +152,7 @@ app.post("/login", async (req, res) => {
 });
 //uviversal Route
 app.get("*", (req, res) => {
-  res.send("Page Not Found");
+  res.render("pagenotfound");
 });
 
 //Server configuration

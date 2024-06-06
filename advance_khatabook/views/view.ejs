@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>edit page</title>
+  </head>
+  <body>
+    <H1><center>Welcome <%=user.name%></center></H1>
+    <form action="/edit/<%=username%>/<%=id%>/<%=content%>">
+      <p><%=title%></p>
+
+      <p name="textarea"><%=content%></p>
+      <div class="button">
+        <button type="submit">edit Hisab</button>
+      </div>
+    </form>
+  </body>
+</html>
