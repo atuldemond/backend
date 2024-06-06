@@ -3,15 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/register.css" />
     <title>Register</title>
   </head>
   <body>
-    <form action="/createuser" method="post">
-      <input type="text" placeholder="name" name="name" />
-      <input type="text" placeholder="username" name="username" />
-      <input type="password" placeholder="password" name="password" />
-      <input type="email" placeholder="email" name="email" id="" />
-      <button type="submit">Submit</button>
-    </form>
+    <div class="head">
+      <div class="leftlogo">
+        <div class="logof"><a id="homelink2" href="/">Khatabook</a></div>
+      </div>
+      <div class="right">
+        <div class="home"><a id="homelink" href="/">home</a></div>
+        <div class="create">
+          <a id="homelink" href="/loginpage">Create New Hisaab</a>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="register">
+      <p class="log">Login in your account</p>
+      <form id="form" action="/createuser" method="post">
+        <input id="input" type="text" placeholder="name" name="name" />
+        <input
+          id="password"
+          type="text"
+          placeholder="username"
+          name="username"
+        />
+
+        <input
+          id="password"
+          type="email"
+          placeholder="email"
+          name="email"
+          id=""
+        />
+        <input
+          id="password"
+          type="password"
+          placeholder="password"
+          name="password"
+        />
+        <div class="btn">
+          <button class="reg" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

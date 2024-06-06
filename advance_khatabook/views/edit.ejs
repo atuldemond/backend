@@ -4,8 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>edit page</title>
+    <link rel="stylesheet" href="../css/edit.css" />
   </head>
   <body>
+    <div class="head">
+      <div class="leftlogo">
+        <div class="logof">
+          <a id="homelink2" href="/profile/<%=user.username%>">Khatabook</a>
+        </div>
+      </div>
+      <div class="right">
+        <div class="home">
+          <a id="homelink" href="/profile/<%=user.username%>">home</a>
+        </div>
+        <div class="create">
+          <a id="homelink" href="/newhisab/<%=user.username%>"
+            >Create New Hisaab</a
+          >
+        </div>
+      </div>
+    </div>
+    <hr />
     <form action="/update/<%=user.username%>/<%=id%>/" method="post">
       <H1><center>Welcome <%=user.name%></center></H1>
       <p><%=post_title.title%></p>

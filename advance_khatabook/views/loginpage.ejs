@@ -3,18 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/login.css" />
     <title>Document</title>
   </head>
   <body>
-    <form action="/login" method="post">
-      <input
-        type="text"
-        placeholder="Enter Your username"
-        name="username"
-        id=""
-      />
-      <input type="text" placeholder="Enter Your password" name="password" />
-      <button type="submit">Login</button>
-    </form>
+    <div class="head">
+      <div class="leftlogo">
+        <div class="logof"><a id="homelink2" href="/">Khatabook</a></div>
+      </div>
+      <div class="right">
+        <div class="home"><a id="homelink" href="/">home</a></div>
+        <div class="create">
+          <a id="homelink" href="/loginpage">Create New Hisaab</a>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="register">
+      <p class="log">Login in your account</p>
+      <form id="form" action="/login" method="post">
+        <input
+          type="text"
+          placeholder="Enter Your username"
+          name="username"
+          id="input"
+        />
+        <input
+          id="password"
+          type="text"
+          placeholder="Enter Your password"
+          name="password"
+        />
+        <div class="btn">
+          <button class="reg" type="submit">Login</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

@@ -4,35 +4,70 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/profile.css" />
   </head>
   <body>
+    <div class="head">
+      <div class="leftlogo">
+        <div class="logof">
+          <a id="homelink2" href="/profile/<%=user.username%>">Khatabook</a>
+        </div>
+      </div>
+      <div class="right">
+        <div class="home">
+          <a id="homelink" href="/profile/<%=user.username%>">home</a>
+        </div>
+        <div class="create">
+          <a id="homelink" href="/newhisab/<%=user.username%>"
+            >Create New Hisaab</a
+          >
+        </div>
+      </div>
+    </div>
+    <hr />
     <H1><center>Welcome <%=user.name%></center></H1>
-
-    <button>
-      <a href="/newhisab/<%=user.username%>">Create Your New Hisab</a>
-    </button>
-    <ul>
-      <%user.posts.forEach((post)=>{ %>
-    </ul>
-    <li>
-      <%=post.title%>
+    <div class="body">
       <button>
-        <a
-          href="/view/<%=user.username%>/<%=post.id%>/<%=post.content%>/<%=post.title%>"
-          >View</a
-        >
+        <a href="/newhisab/<%=user.username%>">Create Your New Hisab</a>
       </button>
+    </div>
 
-      <button>
-        <a href="/edit/<%=user.username%>/<%=post.id%>/<%=post.content%>"
-          >Edit</a
-        >
-      </button>
-      <button>
-        <a href="/delete/<%=user.username%>/<%=post.id%>">Delete</a>
-      </button>
-    </li>
+    <div class="function">
+      <ul>
+        <%user.posts.forEach((post)=>{ %>
+      </ul>
+      <li class="li">
+     
+     
+        <div class="div_right">
+      
+      
+          <div class="titlemain">
+          <%=post.title%>
+          </div>
+          <div class="arrowfun">
+           <a id="editarrow" href="/view/<%=user.username%>/<%=post.id%>/<%=post.content%>/<%=post.title%>"><i class="fa-solid fa-arrow-right"></i></i></a>
+            </div>
+          
+          </div>
+    
+        
+        
+        <div class="div_left">
+          <a id="editfile" href="/edit/<%=user.username%>/<%=post.id%>/<%=post.content%>"><i class="fa-solid fa-pen-to-square"></i></a>
+          <a id="editbin" href="/delete/<%=user.username%>/<%=post.id%>"><i  class="fa-solid fa-trash-can"></i></a>
+        </div>
+        
+       
 
-    <%})%>
+
+      </li>
+
+      <%})%>
+    </div>
   </body>
 </html>

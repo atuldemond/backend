@@ -4,18 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create New Hisab</title>
+    <link rel="stylesheet" href="../css/newhisab.css" />
   </head>
   <body>
-    <H1><center>Welcome <%=user.name%></center></H1>
-    <form action="/add/<%=user.username%>" method="post">
-      <div class="title">
-        <input type="text" name="title" placeholder="enter your title" id="" />
+    <div class="head">
+      <div class="leftlogo">
+        <div class="logof">
+          <a id="homelink2" href="/profile/<%=user.username%>">Khatabook</a>
+        </div>
       </div>
+      <div class="right">
+        <div class="home">
+          <a id="homelink" href="/profile/<%=user.username%>">home</a>
+        </div>
+        <div class="create">
+          <a id="homelink" href="/newhisab/<%=user.username%>"
+            >Create New Hisaab</a
+          >
+        </div>
+      </div>
+    </div>
+    <hr />
+    <H1><center>Create Your Hisab <%=user.name%></center></H1>
+    <div class="body_form">
+      <form class="form" action="/add/<%=user.username%>" method="post">
+        <p class="heading">Enter Your Details</p>
+        <div class="title">
+          <input
+            type="text"
+            name="title"
+            placeholder="enter your title"
+            id="title"
+          />
+        </div>
 
-      <textarea name="textarea" id="" rows="10" cols="30"></textarea>
-      <div>
-        <button type="submit">Create New Hisab</button>
-      </div>
-    </form>
+        <textarea
+          name="textarea"
+          id="textarea"
+          rows="10"
+          placeholder="Enter Your Details"
+          cols="30"
+        ></textarea>
+        <div>
+          <button class="btn2" type="submit">Create New Hisab</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

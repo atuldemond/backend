@@ -4,30 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <form action="/login" method="post">
-      <input
-        type="text"
-        placeholder="Enter Your username"
-        name="username"
-        id=""
-      />
-      <input
-        type="password"
-        placeholder="Enter Your password"
-        name="password"
-      />
-      <button type="submit">Login</button>
-      <button>
-        <style>
-          a {
-            text-decoration: none;
-            color: black;
-          }
-        </style>
-        <a href="/register">Register</a>
-      </button>
-    </form>
+    <div class="head">
+      <div class="leftlogo">
+        <div class="logof"><a id="homelink2" href="/">Khatabook</a></div>
+      </div>
+      <div class="right">
+        <div class="home"><a id="homelink" href="/">home</a></div>
+        <div class="create">
+          <a id="homelink" href="/loginpage">Create New Hisaab</a>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div class="middle"><center>Save Your Micro Record now!</center></div>
+    <div class="register">
+      <p class="log">Login in your account</p>
+      <form id="form" action="/login" method="post">
+        <input type="text" placeholder=" username" name="username" id="input" />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          id="password"
+        />
+        <div class="btn">
+          <button type="submit" id="login">Login</button>
+          <button class="reg">
+            <a href="/register">Register</a>
+          </button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>
