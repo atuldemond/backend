@@ -58,6 +58,74 @@ app.get("/userdatawithid", async (req, res) => {
 
   res.send(user);
 });
+
+app.get("/project", async (req, res) => {
+  let user = await userModel.aggregate([
+    {
+      $project: {
+        username: 1,
+        email: 1,
+      },
+    },
+  ]);
+  res.send(user);
+});
+
+app.get("/unwind", async (req, res) => {
+  let user = await userModel.aggregate([
+    {
+      $unwind: "$email",
+    },
+  ]);
+  res.send(user);
+});
+
+app.get("/finding_posts_of_particular_user", async (req, res) => {
+  let posts = await postModel.aggregate([
+    {
+      $lookup: {
+        from: "users",
+        localField: "user",
+        foreignField: "_id",
+        as: "data",
+      },
+    },
+
+    {
+      $unwind: "$data",
+    },
+    {
+      $match: {
+        "data.username": "atuldemond",
+      },
+    },
+  ]);
+  res.send(posts);
+});
+
+app.get("/example2", async (req, res) => {
+  let posts = await postModel.aggregate([
+    {
+      $lookup: {
+        from: "users",
+        localField: "user",
+        foreignField: "_id",
+        as: "data",
+      },
+    },
+
+    {
+      $unwind: "$data",
+    },
+    {
+      $project: {
+        "data.username": 1,
+        "data.email": 1,
+      },
+    },
+  ]);
+  res.send(posts);
+});
 app.get("*", (req, res) => {
   res.send("You are on Wrong Url");
 });
