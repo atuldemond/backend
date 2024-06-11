@@ -1,22 +1,19 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 const path = require("path");
 const ejs = require("ejs");
 
+//Routes ----
+const indexRouter = require("./routes/index-router");
+const universalRouter = require("./routes/universal-router");
+
+//
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
+app.use("/", indexRouter);
+app.use("*", universalRouter);
 
-app.get("*", (req, res) => {
-  res.send("Tum galat jagah apr hoo");
-});
-
-app.listen(port, (req, res) => {
-  console.log("Listing on port " + port);
-});
+app.listen(process.env.PORT || 3000);
