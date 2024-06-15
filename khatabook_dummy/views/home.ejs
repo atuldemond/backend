@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Khaatabook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class00 text-gray-900 flex flex-col min-h-screen">
+  <header class="bg-blue-500 text-white p-4 flex justify-between items-center">
+    <div class="text-2xl font-bold">Khaatabook</div>
+    <nav class="space-x-4">
+      <nav class="space-x-4">
+        <a href="http://localhost:3000/home/" class="hover:text-gray-300">Home</a>
+        <a href="http://localhost:3000/home/about" class="hover:text-gray-300">About Us</a>
+        <a href="http://localhost:3000/home/Services" class="hover:text-gray-300">Services</a>
+        <a href="http://localhost:3000/home/contact" class="hover:text-gray-300">Contact Us</a>
+    </nav>
+    </nav>
+    <div class="space-x-4">
+      <button class="bg-white text-blue-500 px-4 py-2 rounded hover:bg-gray-200"> <a href="http://localhost:3000/auth/register">Sign Up</a> </button>
+      <button class="bg-white text-blue-500 px-4 py-2 rounded hover:bg-gray-200"><a href="http://localhost:3000/auth/login">Login</a></button>
+  </div>
+</header>
+
+    <?php include 'header.html'; ?>
+    
+    <!-- Main Content -->
+    <main class="flex-grow p-8">
+        <h1 class="text-4xl font-bold mb-4">Welcome to Khaatabook</h1>
+        <p class="text-lg mb-6">Khaatabook provides the best data security solutions, ensuring your data is safe and accessible 24/7.</p>
+        <p class="text-lg">Our services include:</p>
+        <ul class="list-disc list-inside mb-4">
+            <li>Top-notch data security</li>
+            <li>Fast access to data</li>
+            <li>24/7 availability</li>
+        </ul>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Learn More</button>
+    </main>
+    
+<footer class="bg-black text-white p-4 mt-[20vh] text-center">
+    <p>Copyright &copy; atuldemond</p>
+</footer>
+
+</body>
+</html>

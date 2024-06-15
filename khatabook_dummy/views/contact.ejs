@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Khaatabook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class00 text-gray-900 flex flex-col min-h-screen">
+  <header class="bg-blue-500 text-white p-4 flex justify-between items-center">
+    <div class="text-2xl font-bold">Khaatabook</div>
+    <nav class="space-x-4">
+        <a href="http://localhost:3000/home/" class="hover:text-gray-300">Home</a>
+        <a href="http://localhost:3000/home/about" class="hover:text-gray-300">About Us</a>
+        <a href="http://localhost:3000/home/services" class="hover:text-gray-300">Services</a>
+        <a href="http://localhost:3000/home/contact" class="hover:text-gray-300">Contact Us</a>
+    </nav>
+    <div class="space-x-4">
+      <button class="bg-white text-blue-500 px-4 py-2 rounded hover:bg-gray-200"> <a href="http://localhost:3000/auth/register">Sign Up</a> </button>
+      <button class="bg-white text-blue-500 px-4 py-2 rounded hover:bg-gray-200"><a href="http://localhost:3000/auth/login">Login</a></button>
+  </div>
+</header>
+
+    <?php include 'header.html'; ?>
+    
+    <!-- Main Content -->
+    <main class="flex-grow p-8">
+      <h1 class="text-4xl font-bold mb-4">Contact Us</h1>
+      <form class="space-y-4">
+          <div>
+              <label for="name" class="block text-gray-700">Name</label>
+              <input type="text" id="name" name="name" class="mt-1 block w-30% bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded py-2 px-3">
+          </div>
+          <div>
+              <label for="email" class="block text-gray-700">Email</label>
+              <input type="email" id="email" name="email" class="mt-1 block  w-30% bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded py-2 px-3">
+          </div>
+          <div>
+              <label for="message" class="block text-gray-700">Message</label>
+              <textarea id="message" name="message" rows="4" class="mt-1 block w-[17vw] bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded py-2 px-3"></textarea>
+          </div>
+          <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Send Message</button>
+      </form>
+  </main>
+    
+<footer class="bg-black text-white p-4 mt-[30vh] text-center">
+    <p>Copyright &copy; atuldemond</p>
+</footer>
+
+</body>
+</html>

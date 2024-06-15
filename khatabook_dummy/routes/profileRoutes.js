@@ -14,7 +14,7 @@ router.post("/", userprofile);
 router.post("/allpost", allposts);
 router.post("/editpost", editpost);
 router.post("/deletepost", deletepost);
-router.post("/addpost", addpost);
-router.post("/viewpost", viewpost);
+router.get("/addpost", addpost);
+router.get("/viewpost", viewpost);
 
 module.exports = router;

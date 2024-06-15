@@ -6,8 +6,8 @@ const {
   logoutUser,
   getUserProfile,
 } = require("../controllers/authController");
-router.post("/register", registerUser);
-router.post("/login", loginUser);
+router.get("/register", registerUser);
+router.get("/login", loginUser);
 router.get("/logout", logoutUser);
 router.get("/profile", getUserProfile);
 

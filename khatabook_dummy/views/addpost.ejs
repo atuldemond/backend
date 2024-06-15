@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Hisaab - Khaatabook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 flex items-center justify-center min-h-screen"
+  >
+    <div
+      class="bg-white dark:bg-gray-700 p-8 rounded shadow-lg max-w-xl w-full"
+    >
+      <h1 class="text-2xl font-bold mb-6">Khaatabook</h1>
+      <h2 class="text-xl font-semibold mb-4">Create New Hisaab</h2>
+      <form>
+        <div class="mb-4">
+          <label for="title" class="block text-gray-700 dark:text-gray-300"
+            >Title</label
+          >
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="mt-1 block w-full bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded py-2 px-3"
+            placeholder="Shopping Hisaab, Ghar ka Kharch..."
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            for="description"
+            class="block text-gray-700 dark:text-gray-300"
+            >Description</label
+          >
+          <textarea
+            id="description"
+            name="description"
+            class="mt-1 block w-full bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded py-2 px-3"
+            rows="4"
+            placeholder="Daal, Aata, Cheeni"
+          ></textarea>
+        </div>
+        <div class="mb-4 flex items-center">
+          <input type="checkbox" id="encrypt" name="encrypt" class="mr-2" />
+          <label for="encrypt" class="text-gray-700 dark:text-gray-300"
+            >Encrypt this file</label
+          >
+        </div>
+        <div class="mb-4 hidden" id="passcodeInput">
+          <label for="passcode" class="block text-gray-700 dark:text-gray-300"
+            >Passcode</label
+          >
+          <input
+            type="text"
+            id="passcode"
+            name="passcode"
+            class="mt-1 block w-full bg-gray-100 dark:bg-gray-800 border-gray-300 dark:border-gray-600 rounded py-2 px-3"
+          />
+        </div>
+        <div class="mb-4 flex items-center">
+          <input type="checkbox" id="shareable" name="shareable" class="mr-2" />
+          <label for="shareable" class="text-gray-700 dark:text-gray-300"
+            >Shareable file?</label
+          >
+        </div>
+        <div class="mb-4 hidden" id="editPermissionInput">
+          <input
+            type="checkbox"
+            id="editPermission"
+            name="editPermission"
+            class="mr-2"
+          />
+          <label for="editPermission" class="text-gray-700 dark:text-gray-300"
+            >Edit permissions</label
+          >
+        </div>
+        <button
+          type="submit"
+          class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+        >
+          Create New Hisaab
+        </button>
+      </form>
+    </div>
+    <script>
+      document
+        .getElementById("encrypt")
+        .addEventListener("change", function () {
+          document
+            .getElementById("passcodeInput")
+            .classList.toggle("hidden", !this.checked);
+        });
+
+      document
+        .getElementById("shareable")
+        .addEventListener("change", function () {
+          document
+            .getElementById("editPermissionInput")
+            .classList.toggle("hidden", !this.checked);
+        });
+    </script>
+  </body>
+</html>
