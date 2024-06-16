@@ -18,9 +18,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //routes
 
-app.use("/", (req, res) => {
-  res.render("home");
-});
 app.use("/auth", authRoutes);
 app.use("/home", homeRoutes);
 app.use("/profile", profileRoutes);
