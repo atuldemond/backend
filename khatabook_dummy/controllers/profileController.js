@@ -1,3 +1,5 @@
+const userModel = require("../models/user-model");
+
 module.exports.userprofile = async (req, res) => {
   try {
     // Simulating retrieving all posts logic
@@ -39,9 +41,13 @@ module.exports.deletepost = async (req, res) => {
 };
 
 module.exports.addpost = async (req, res) => {
+  const { username } = req.params;
+
   try {
-    // Simulating add post logic
-    res.render("addpost");
+    let user = await userModel.findOne({ username: username });
+    console.log(user);
+
+    res.render("profile", { user });
   } catch (error) {
     console.error("Error adding post:", error);
     res.status(500).render("error", { message: "Internal Server Error" });
