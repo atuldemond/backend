@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-
+//checking routes
 //routes
 const authRoutes = require("./routes/authRoutes");
 const homeRoutes = require("./routes/homeRoutes");
