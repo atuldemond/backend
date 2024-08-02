@@ -7,15 +7,17 @@
 body {
   background-color: rgb(255, 255, 255);
 }
-/* header-----------------* */
+
+/* header----------------- */
 .head {
-  width: 100;
+  width: 100%;
   height: 10vh;
   border: 2px solid rgba(255, 0, 0, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .leftlogo {
   width: 20vw;
   height: 9vh;
@@ -27,6 +29,7 @@ body {
   font-weight: bold;
   font-size: 1.8vw;
 }
+
 .right {
   width: 30vw;
   height: 8vh;
@@ -37,78 +40,258 @@ body {
   gap: 5vw;
   font-weight: bold;
 }
+
 #homelink {
   text-decoration: none;
   color: black;
   font-size: 1.3vw;
 }
+
 #homelink2 {
   text-decoration: none;
   color: black;
   font-size: 2vw;
 }
 
+.middle {
+  width: 100%;
+  height: 5vh;
+  border: 2px solid rgba(255, 0, 0, 0);
+  margin-top: 4vh;
+  margin-bottom: 10vh;
+  display: flex;
+  font-weight: bold;
+  font-size: 4vh;
+  justify-content: center;
+}
+
+.register {
+  width: 50vw;
+  height: 80vh;
+  border: 2px solid rgba(255, 0, 0, 0);
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form {
+  width: 20vw;
+  height: 70vh;
+  border: 2px solid rgba(255, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+}
+
+#input,
+#password {
+  padding: 20px;
+  border: none;
+  background-color: rgba(213, 210, 210, 0.597);
+  margin: 10px;
+  border-radius: 5px;
+  font-size: larger;
+}
+
+.btn {
+  display: flex;
+}
+
+#login {
+  width: 5vw;
+  height: 5vh;
+  margin-left: 1vw;
+  border: none;
+  background-color: rgba(0, 133, 255, 255);
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.reg {
+  width: 5vw;
+  height: 5vh;
+  margin-left: 5px;
+  border: none;
+  background-color: rgba(0, 133, 255, 255);
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.reg a {
+  text-decoration: none;
+  color: white;
+}
+
+.log {
+  font-weight: bold;
+  font-size: larger;
+  margin-bottom: 10px;
+  margin-top: 5vh;
+}
+
+/* Profile Section */
 .funtion ul {
+  list-style-type: none;
 }
 
 .li {
-  width: 30vw;
+  width: 100%;
+  max-width: 600px;
   display: flex;
-
+  justify-content: space-between;
   margin-top: 2vh;
   background: rgba(0, 133, 255, 255);
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-radius: 5px;
-  border: 2px solid rgba(255, 0, 0, 0);
   padding: 10px;
-  text-decoration: none;
-  justify-content: space-between;
+  border-radius: 5px;
   color: white;
   font-weight: lighter;
   font-size: 1.2vw;
 }
 
-.div_left {
-  width: 50%;
-  display: flex;
-  justify-content: flex-end;
-  gap: 2vw;
-  overflow: hidden;
-  align-items: center;
-}
+.div_left,
 .div_right {
-  width: 50%;
-
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
   gap: 2vw;
   overflow: hidden;
-  align-items: center;
 }
 
-#editfile i {
-  border-radius: 50%;
-  padding: 3px;
-  background-color: white;
-  color: rgba(0, 133, 255, 255);
-  font-weight: lighter;
+.div_left {
+  justify-content: flex-end;
 }
 
-#editbin i {
-  border-radius: 50%;
-  padding: 3px;
-  background-color: white;
-  color: red;
-  font-weight: lighter;
+.div_right {
+  justify-content: flex-start;
 }
+
+#editfile i,
+#editbin i,
 #editarrow i {
   border-radius: 50%;
   padding: 3px;
   background-color: white;
+  font-weight: lighter;
+}
+
+#editfile i,
+#editarrow i {
   color: rgba(0, 133, 255, 255);
+}
+
+#editbin i {
+  color: red;
 }
 
 .titlemain {
   width: 80%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .head {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .leftlogo {
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+  .right {
+    width: 100%;
+    justify-content: space-around;
+    font-size: 0.8em;
+  }
+
+  .middle {
+    font-size: 1.5em;
+    margin-bottom: 5vh;
+  }
+
+  .register {
+    width: 90%;
+  }
+
+  #form {
+    width: 80%;
+  }
+
+  .btn {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #login,
+  .reg {
+    width: 100%;
+  }
+
+  .li {
+    font-size: 1em;
+    padding: 10px 5px;
+    flex-direction: column;
+  }
+
+  .div_left,
+  .div_right {
+    justify-content: center;
+    gap: 1vw;
+  }
+
+  #input,
+  #password {
+    font-size: 1em;
+  }
+
+  .log {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  #homelink,
+  #homelink2 {
+    font-size: 1em;
+  }
+
+  .leftlogo {
+    font-size: 1em;
+  }
+
+  .middle {
+    font-size: 1em;
+    margin-bottom: 3vh;
+  }
+
+  .register {
+    width: 100%;
+  }
+
+  #form {
+    width: 90%;
+  }
+
+  #input,
+  #password {
+    padding: 10px;
+    font-size: 0.8em;
+  }
+
+  .btn {
+    gap: 5px;
+  }
+
+  #login,
+  .reg {
+    height: 40px;
+    font-size: 0.8em;
+  }
+
+  .log {
+    font-size: 1em;
+  }
 }

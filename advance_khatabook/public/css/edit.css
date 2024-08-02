@@ -1,21 +1,24 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   font-family: sans-serif;
 }
 
 body {
   background-color: rgb(255, 255, 255);
 }
-/* header-----------------* */
+
+/* header----------------- */
 .head {
-  width: 100;
+  width: calc(100% - 40px); /* Subtract the left and right margins */
+  margin: 0 20px; /* Add left and right margin */
   height: 10vh;
   border: 2px solid rgba(255, 0, 0, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .leftlogo {
   width: 20vw;
   height: 9vh;
@@ -27,6 +30,7 @@ body {
   font-weight: bold;
   font-size: 1.8vw;
 }
+
 .right {
   width: 30vw;
   height: 8vh;
@@ -37,13 +41,120 @@ body {
   gap: 5vw;
   font-weight: bold;
 }
+
 #homelink {
   text-decoration: none;
   color: black;
   font-size: 1.3vw;
 }
+
 #homelink2 {
   text-decoration: none;
   color: black;
   font-size: 2vw;
+}
+
+/* Form styles */
+form {
+  margin: 20px;
+}
+
+textarea {
+  width: 100%;
+  max-width: calc(100% - 40px);
+  margin: 20px;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.button {
+  text-align: center;
+  margin: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: rgba(0, 133, 255, 255);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .leftlogo,
+  .right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .right {
+    justify-content: space-evenly;
+    gap: 2vw;
+  }
+
+  #homelink,
+  #homelink2 {
+    font-size: 2.5vw;
+  }
+
+  form {
+    margin: 10px;
+  }
+
+  textarea {
+    margin: 10px;
+    font-size: 0.9em;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .leftlogo,
+  .right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .right {
+    justify-content: space-evenly;
+    gap: 1vw;
+  }
+
+  #homelink,
+  #homelink2 {
+    font-size: 3vw;
+  }
+
+  form {
+    margin: 5px;
+  }
+
+  textarea {
+    margin: 5px;
+    font-size: 0.8em;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
 }

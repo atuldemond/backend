@@ -1,23 +1,26 @@
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   font-family: sans-serif;
 }
 
 body {
   background-color: rgb(255, 255, 255);
 }
-/* header-----------------* */
+
+/* header-----------------*/
 .head {
-  width: 100;
+  width: 100%;
   height: 10vh;
   border: 2px solid rgba(255, 0, 0, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 2%;
 }
+
 .leftlogo {
-  width: 20vw;
+  width: 20%;
   height: 9vh;
   border: 2px solid rgba(255, 0, 0, 0);
   text-align: center;
@@ -25,44 +28,50 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 1.8vw;
+  font-size: 1.5em;
 }
+
 .right {
-  width: 30vw;
+  width: 30%;
   height: 8vh;
   border: 2px solid rgba(0, 0, 0, 0);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 5vw;
   font-weight: bold;
 }
+
 #homelink {
   text-decoration: none;
   color: black;
-  font-size: 1.3vw;
+  font-size: 1em;
 }
+
 #homelink2 {
   text-decoration: none;
   color: black;
-  font-size: 2vw;
+  font-size: 2em;
 }
 
 .middle {
-  width: 100;
+  width: 100%;
   height: 5vh;
   border: 2px solid rgba(255, 0, 0, 0);
   margin-top: 4vh;
   margin-bottom: 10vh;
   display: flex;
   font-weight: bold;
-  font-size: 4vh;
+  font-size: 2em;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2%;
 }
 
 .register {
-  width: 50vw;
-  height: 80vh;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
   border: 2px solid rgba(255, 0, 0, 0);
   margin: auto;
   display: flex;
@@ -70,65 +79,123 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 #form {
-  width: 20vw;
-  height: 70vh;
+  width: 100%;
+  height: auto;
   border: 2px solid rgba(255, 0, 0, 0);
   display: flex;
   flex-direction: column;
 }
-#input {
-  padding: 20px;
-  border: none;
-  background-color: rgba(213, 210, 210, 0.597);
-  margin: 10px;
-  border-radius: 5px;
-  font-size: larger;
-}
 
+#input,
 #password {
-  padding: 20px;
+  padding: 15px;
   border: none;
   background-color: rgba(213, 210, 210, 0.597);
   margin: 10px;
   border-radius: 5px;
-  font-size: larger;
+  font-size: 1em;
 }
 
 .btn {
   display: flex;
-}
-#login {
-  width: 5vw;
-  height: 5vh;
-  margin-left: 1vw;
-  border: none;
-  background-color: rgba(0, 133, 255, 255);
-  border-radius: 5px;
-  cursor: pointer;
-  color: white;
+  justify-content: space-between;
+  width: 100%;
 }
 
+#login,
 .reg {
-  width: 5vw;
-  height: 5vh;
-  margin-left: 5px;
+  width: 48%;
+  height: 40px;
   border: none;
   background-color: rgba(0, 133, 255, 255);
   border-radius: 5px;
-  color: white;
-  margin-left: 10px;
   cursor: pointer;
-  margin-left: 10px;
+  color: white;
+  text-align: center;
+  line-height: 40px;
 }
+
 .reg a {
   text-decoration: none;
   color: white;
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .log {
   font-weight: bold;
-  font-size: larger;
+  font-size: 1.5em;
   margin-bottom: 10px;
+  text-align: center;
   margin-top: 5vh;
+}
+
+@media (max-width: 768px) {
+  .head {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .leftlogo {
+    width: 100%;
+    font-size: 1.2em;
+  }
+
+  .right {
+    width: 100%;
+    justify-content: space-around;
+    font-size: 0.8em;
+  }
+
+  .middle {
+    font-size: 1.5em;
+    margin-bottom: 5vh;
+  }
+
+  .register {
+    width: 90%;
+  }
+
+  .btn {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #login,
+  .reg {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  #homelink,
+  #homelink2 {
+    font-size: 1em;
+  }
+
+  .leftlogo {
+    font-size: 1em;
+  }
+
+  .middle {
+    font-size: 1em;
+    margin-bottom: 3vh;
+  }
+
+  .register {
+    width: 100%;
+  }
+
+  #input,
+  #password {
+    padding: 10px;
+    font-size: 0.8em;
+  }
+
+  .log {
+    font-size: 1em;
+  }
 }
