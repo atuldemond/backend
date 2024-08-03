@@ -152,7 +152,7 @@ app.post("/login", async (req, res) => {
 });
 //uviversal Route
 app.get("*", (req, res) => {
-  res.render("pagenotfound");
+  res.render("page not found");
 });
 
 //Server configuration
