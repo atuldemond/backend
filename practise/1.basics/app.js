@@ -31,7 +31,7 @@ app.post("/users", async (req, res) => {
   res.send("User created successfully");
 });
 
-app.use((req, res) => {
+app.all((req, res) => {
   res.status(404).send("You are on the wrong path");
 });
 
