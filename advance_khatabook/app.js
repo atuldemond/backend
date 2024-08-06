@@ -151,7 +151,7 @@ app.post("/login", async (req, res) => {
   }
 });
 //uviversal Route
-app.get("*", (req, res) => {
+app.all("*", (req, res) => {
   res.render("page not found");
 });
 
