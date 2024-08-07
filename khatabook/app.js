@@ -82,6 +82,10 @@ app.post("/create", (req, res) => {
   });
 });
 
+app.all("*", (req, res) => {
+  res.send("you are worng page ");
+});
+
 app.listen(port, (req, res) => {
   console.log("listening on port 3000");
 });
