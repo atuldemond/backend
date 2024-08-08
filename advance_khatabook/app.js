@@ -157,5 +157,5 @@ app.all("*", (req, res) => {
 
 //Server configuration
 app.listen(port, (req, res) => {
-  console.log("Sever is listing on port 3000");
+  console.log("Sever is listing on port 3000 evcery things work fine");
 });
