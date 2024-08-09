@@ -61,7 +61,7 @@ app.get("/delete/:filename", (req, res) => {
 });
 
 app.get("/create/new", (req, res) => {
-  res.render("create");
+  res.render("create ");
 });
 
 app.post("/create", (req, res) => {
@@ -83,7 +83,7 @@ app.post("/create", (req, res) => {
 });
 
 app.all("*", (req, res) => {
-  res.send("you are worng page ");
+  res.send("you are worng page try after some time");
 });
 
 app.listen(port, (req, res) => {
