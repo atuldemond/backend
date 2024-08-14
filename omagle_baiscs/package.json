@@ -15,7 +15,8 @@
     "ejs": "^3.1.10",
     "express": "^4.19.2",
     "nodemon": "^3.1.4",
-    "socket.io": "^4.7.5"
+    "socket.io": "^4.7.5",
+    "webrtc": "^1.14.1"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.9"

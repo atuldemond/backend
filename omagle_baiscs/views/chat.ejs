@@ -202,6 +202,7 @@
 
       socket.on("joined", function (roomname) {
         room = roomname;
+        console.log("Joined room: ", room);
         document.querySelector(".nobody").classList.add("hidden");
       });
 
