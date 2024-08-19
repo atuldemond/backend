@@ -2,33 +2,43 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 
-//env
+// Environment variables
 require("dotenv").config();
 
-//middlewares
-app.use(cookieParser());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-//database
+// Database connection function
 const connectionDb = require("./config/mongoose");
-connectionDb();
-const userModel = require("./models/user-model");
-const postsModel = require("./models/post-model");
 
-//routes
-const authRoutes = require("./routes/authRoutes");
+try {
+  // Middlewares
+  app.use(cookieParser());
+  app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  res.send("This is Home Page");
-});
+  // Database connection
+  connectionDb();
+  const userModel = require("./models/user-model");
+  const postsModel = require("./models/post-model");
 
-app.use("/auth", authRoutes);
+  // Routes
+  const authRoutes = require("./routes/authRoutes");
 
-app.get("*", (req, res) => {
-  res.send("You are worng page");
-});
+  app.get("/", (req, res) => {
+    res.send("This is Home Page");
+  });
 
-app.listen(3000, () => {
-  console.log("server is running ");
-});
+  app.use("/auth", authRoutes);
+
+  // Catch-all route for undefined routes
+  app.get("*", (req, res) => {
+    res.send("You are on the wrong page");
+  });
+
+  // Start the server
+  app.listen(3000, () => {
+    console.log("Server is running on port 3000");
+  });
+} catch (error) {
+  console.error("An error occurred during server setup:", error.message);
+  // Optionally, handle the error further or exit the process
+  process.exit(1); // Exit the process if a critical error occurs
+}
